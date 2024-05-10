@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "request": "launch",
+            "environmentType": "OnPrem",
+            "name": "DYNBC11_009",
+            "server": "https://erp-labs.inf.fh-dortmund.de",
+            "port": 443,
+            "serverInstance": "DYNBC11_009",
+            "tenant": "default",
+            "authentication": "UserPassword",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true
+        }
+    ]
+}
