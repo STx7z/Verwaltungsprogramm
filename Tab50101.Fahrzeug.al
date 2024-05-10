@@ -39,7 +39,7 @@ table 50101 Fahrzeug
         {
             FieldClass = FlowField;
             DecimalPlaces = 1 : 1;
-            CalcFormula = Sum(Fahrt."Gefahrene KM" WHERE(Fahrzeug = FIELD(Kennzeichen)));
+            CalcFormula = SUM(Fahrt."Gefahrene KM" WHERE(Fahrzeug = field(Kennzeichen)));
 
         }
         field(8; "Anhängerkupplung"; Boolean)

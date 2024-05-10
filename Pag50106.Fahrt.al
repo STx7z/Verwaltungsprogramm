@@ -66,13 +66,22 @@ page 50106 Fahrt
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Exportieren als XML")
             {
-                ApplicationArea = All;
-
+                Promoted = true;
+                PromotedCategory = New;
                 trigger OnAction()
                 begin
-
+                    Xmlport.Run(50111, false, false);
+                end;
+            }
+            action("Fahrten importieren")
+            {
+                Promoted = true;
+                PromotedCategory = New;
+                trigger OnAction()
+                begin
+                    Xmlport.Run(50113, false, true);
                 end;
             }
         }

@@ -77,13 +77,15 @@ page 50105 Fahrzeug
     {
         area(Processing)
         {
-            action(ActionName)
+
+            action("Fahrzeuge importieren")
             {
-                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = New;
 
                 trigger OnAction()
                 begin
-
+                    Xmlport.Run(50112, false, true);
                 end;
             }
         }
