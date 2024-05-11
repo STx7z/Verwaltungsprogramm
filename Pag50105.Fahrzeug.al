@@ -62,6 +62,13 @@ page 50105 Fahrzeug
                     ApplicationArea = All;
 
                 }
+
+                field("Afa-Methode"; "Afa-Methode")
+                {
+                    ApplicationArea = All;
+
+                }
+
                 field(Restbuchwert; Rec.Restbuchwert)
                 {
                     ApplicationArea = All;
@@ -88,9 +95,38 @@ page 50105 Fahrzeug
                     Xmlport.Run(50112, false, true);
                 end;
             }
+
+
+            action("Restbuchwert berechnen")
+            {
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Image = CashReceiptJournal;
+
+                trigger OnAction()
+                begin
+                    case "Afa-Methode" of
+                        "Afa-Methode"::linear:
+                            Afa.Linear(Rec.Kennzeichen);
+                        "Afa-Methode"::degressiv:
+                            Afa.Degressiv(Rec.Kennzeichen);
+                        "Afa-Methode"::kombiniert:
+                            Afa.Kombiniert(Rec.Kennzeichen);
+                        "Afa-Methode"::leistungsabh:
+                            Afa."Leistungsabhängig"(Rec.Kennzeichen);
+                    end;
+                end;
+            }
+
+
         }
+
+
     }
 
     var
-        myInt: Integer;
+        "Afa-Methode": Option linear,degressiv,kombiniert,leistungsabh;
+
+        AFA: Codeunit Afa;
 }
